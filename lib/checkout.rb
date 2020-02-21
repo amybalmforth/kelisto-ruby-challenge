@@ -6,7 +6,7 @@ class Checkout
   end
 
   def scan(item)
-    item
+    @items.push(item)
   end
 
 
