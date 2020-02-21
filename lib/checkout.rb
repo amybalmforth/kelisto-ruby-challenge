@@ -12,9 +12,11 @@ class Checkout
   end
 
   def total
-    @items.map do |item|
-      return item.price
+    receipt = []
+    @items.select do |item|
+      receipt << item.price
     end
+    return receipt.join("")
   end
 
 
