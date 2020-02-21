@@ -15,9 +15,14 @@ describe Checkout do
     end
   end
   describe 'total method' do
-    it 'can total all item prices' do
+    it 'can total one item price' do
       checkout.scan(item)
       expect(checkout.total).to eq "£3.11"
+    end
+    it 'can total two item prices' do
+      checkout.scan(item)
+      checkout.scan(item)
+      expect(checkout.total).to eq "£6.22"
     end
   end
 end

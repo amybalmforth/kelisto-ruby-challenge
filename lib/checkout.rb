@@ -14,9 +14,9 @@ class Checkout
   def total
     receipt = []
     @items.select do |item|
-      receipt << item.price
+      receipt << item.price.delete("£").to_f
     end
-    return receipt.join("")
+    return "£" + receipt.inject(:+).to_s
   end
 
 
