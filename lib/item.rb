@@ -1,3 +1,5 @@
+require_relative "checkout"
+
 class Item
   attr_reader :code, :name, :price
 

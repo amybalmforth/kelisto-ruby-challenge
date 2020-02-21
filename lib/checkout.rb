@@ -1,3 +1,5 @@
+require_relative "item"
+
 class Checkout
   attr_reader :items
 
@@ -7,6 +9,12 @@ class Checkout
 
   def scan(item)
     @items.push(item)
+  end
+
+  def total
+    @items.map do |item|
+      return item.price
+    end
   end
 
 
