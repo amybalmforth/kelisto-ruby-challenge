@@ -1,10 +1,11 @@
-require_relative "item"
+require_relative 'item'
 
 class Checkout
-  attr_reader :items
+  attr_reader :items, :pricing_rules
 
-  def initialize
+  def initialize(pricing_rules)
     @items = []
+    @pricing_rules = pricing_rules
   end
 
   def scan(item)
@@ -14,10 +15,8 @@ class Checkout
   def total
     receipt = []
     @items.select do |item|
-      receipt << item.price.delete("£").to_f
+      receipt << item.price.delete('£').to_f
     end
-    return "£" + receipt.inject(:+).to_s
+    '£' + receipt.inject(:+).to_s
   end
-
-
 end
