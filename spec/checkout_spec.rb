@@ -2,7 +2,7 @@ require 'checkout'
 
 describe Checkout do
   let(:checkout) { described_class.new }
-  let(:item) { Item.new("GR1") }
+  let(:item) { Item.new("GR1", "Green tea") }
   describe 'creating a new checkout' do
     it 'checkout initialised with empty array for items' do
       expect(checkout.items.length).to eq 0
