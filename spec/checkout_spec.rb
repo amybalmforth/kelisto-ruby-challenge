@@ -7,9 +7,6 @@ describe Checkout do
   let(:strawbs) { Item.new('SR1', 'Strawberries', '£5.00') }
   let(:coffee) { Item.new('CF1', 'Coffee', '£11.23') }
   describe 'creating a new checkout' do
-    it 'checkout initialised with empty array for items' do
-      expect(checkout.items.length).to eq 0
-    end
     it 'checkout initialised with pricing rules' do
       expect(checkout.pricing_rules).to eq pricing
     end

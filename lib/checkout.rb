@@ -1,11 +1,7 @@
-require_relative 'item'
-require_relative 'pricing'
-
 class Checkout
-  attr_reader :items, :pricing_rules
+  attr_reader :pricing_rules
 
   def initialize(pricing_rules)
-    @items = []
     @pricing_rules = pricing_rules
   end
 
@@ -14,10 +10,6 @@ class Checkout
   end
 
   def total
-    receipt = []
-    @pricing_rules.items.select do |item|
-      receipt << item.price.delete('£').to_f
-    end
-    '£' + receipt.inject(:+).to_s
+    @pricing_rules.calculate_price
   end
 end
