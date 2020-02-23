@@ -22,6 +22,9 @@ describe Pricing do
   # Total price expected: £16.61
 
   describe 'calculate_price method' do
-    it 'pricing '
+    it 'can calculate total price for 1 item' do
+      checkout.scan(tea)
+      expect(pricing.calculate_price).to eq "£3.11"
+    end
   end
 end
