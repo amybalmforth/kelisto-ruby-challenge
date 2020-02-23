@@ -27,4 +27,11 @@ describe PricingCeo do
       expect(pricing.calculate_price).to eq "£3.11"
     end
   end
+  describe 'assessment criteria for ceo pricing' do
+    it 'can price two green tea buy one get one free' do
+      checkout.scan(tea)
+      checkout.scan(tea)
+      expect(pricing.calculate_price).to eq "£3.11"
+    end
+  end
 end
