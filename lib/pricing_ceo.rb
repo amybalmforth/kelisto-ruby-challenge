@@ -17,7 +17,8 @@ class PricingCeo
       receipt << item.price.delete('£').to_f
     end
     total_price = receipt.inject(:+)
-    if tea_quantity == 2
+    p tea_quantity
+    if tea_quantity >= 2
       total_price -= 3.11
     end
     '£' + total_price.to_s

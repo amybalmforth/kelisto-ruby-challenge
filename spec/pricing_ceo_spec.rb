@@ -33,5 +33,13 @@ describe PricingCeo do
       checkout.scan(tea)
       expect(pricing.calculate_price).to eq "£3.11"
     end
+    it 'can fulfil assessment criteria 1' do
+      checkout.scan(tea)
+      checkout.scan(strawbs)
+      checkout.scan(tea)
+      checkout.scan(tea)
+      checkout.scan(coffee)
+      expect(pricing.calculate_price).to eq "£22.45"
+    end
   end
 end
